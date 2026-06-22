@@ -1,6 +1,6 @@
 # SEO & Performance Changes — `paracogas.com/pool/`
 
-**Date:** 2026-06-22
+**Date:** 2026-06-22 · **Last re-audited:** 2026-06-22 (after user edits — see [Post-edit re-audit](#post-edit-re-audit-2026-06-22) at the bottom)
 **Files:**
 - `original-page.html` — untouched download of the live page (the "before")
 - `pool-optimized.html` — corrected version with all fixes applied (the "after")
@@ -22,7 +22,7 @@ This implements the cowork **SEO Brief** (`Paraco_Pool_Page_Content_Draft` / `Pa
 | 1 | Title `Pool \| Paraco Gas` (17 chars, no keyword) | `Propane Pool Heaters — Delivery & Service \| Paraco Gas` (~54 chars) | **Rank Math** → edit the Pool page → *Edit Snippet → Title* |
 | 2 | Meta description = keyword-stuffed 8-phrase list | Benefit + CTA + service area (~145 chars) | **Rank Math** → *Edit Snippet → Description* |
 | 3 | **Two `<h1>`** ("Super Summer Savings" + "Choose Paraco…") | Hero slide demoted to styled text; promo heading → `<h2>`; **one** topical `<h1>` "Propane for Pool Heaters" | Beaver Builder: hero slide module (heading tag → paragraph/H2), promo heading module (tag → H2), new Heading module for the H1 |
-| 4 | Only 1 `<h2>`, no `<h3>` | 11 `<h2>` (question-style) + 7 `<h3>` | Beaver Builder content modules (see content outline below) |
+| 4 | Only 1 `<h2>`, no `<h3>` | 11 `<h2>` (question-style) + 5 `<h3>` (FAQ questions) | Beaver Builder content modules (see content outline below) |
 | 5 | Thin/promotional content | Added ~900 words of topical content + comparison table | Beaver Builder rich-text/table modules |
 | 6 | No FAQ | FAQ section (5 Q&As) | Beaver Builder rich-text module |
 | 7 | No FAQ/Service/Breadcrumb schema | Added `FAQPage` + `Service` + `BreadcrumbList` JSON-LD | **Rank Math** (Schema Generator: Service + FAQ) or a custom JSON-LD block |
@@ -50,7 +50,7 @@ Result: **exactly one `<h1>`**, with a logical question-style outline (good for 
 - **H1:** Propane for Pool Heaters *(+ BLUF intro paragraph)*
 - H2: Why Is Propane a Smart Choice for Pool Heating?
 - H2: How Does a Propane Pool Heater Work?
-- H2: Can You Use a Propane Pool Heater for Inground and Above-Ground Pools? *(H3: Inground / H3: Above-ground)*
+- H2: Can You Use a Propane Pool Heater for Inground and Above-Ground Pools? *(inground/above-ground now covered in paragraphs — sub-H3s removed in user edit)*
 - H2: Propane vs. Electric Heat Pump vs. Solar *(comparison table)*
 - H2: What Size Propane Tank Do You Need for a Pool Heater?
 - H2: How Much Does It Cost to Heat a Pool With Propane?
@@ -84,7 +84,7 @@ The content draft flagged a few specifics that should be verified (don't publish
 2. **Do you install heaters, or supply/service propane only?** The "near you" section currently says delivery + support. If Paraco installs, target "pool heater installation near me" explicitly and link `/locations/`.
 3. **Tank sizing (250–500 gal) and BTU ranges (200k–400k)** — industry-typical figures. Confirm against what Paraco actually offers.
 4. **Cost section** — intentionally kept qualitative (no dollar figures). Add Paraco-specific rate/pre-buy guidance if desired.
-5. **Internal links** used confirmed footer URLs: `/residential/`, `/service-contracts/`, `/locations/`. Add a dedicated tank-sizing page link if one exists.
+5. **Internal links** — ✅ done. The user added a robust set of contextual links (5 blog posts, `/tank-sizes-and-installation/`, `/pool-heater-maintenance/`, `/locations/`, `/contact-us/`), all verified returning HTTP 200 on 2026-06-22.
 
 ## Not changed (out of scope for a static edit, but recommended)
 - **Render-blocking resources:** 15 stylesheets + jQuery load in `<head>`. Consider a caching/optimization plugin (WP Rocket / Perfmatters) to defer non-critical CSS/JS.
@@ -92,3 +92,37 @@ The content draft flagged a few specifics that should be verified (don't publish
 - **`og:type`** is `article`; `website` is more accurate for a service landing page (minor).
 - **Duplicate WPForms** (`#wpforms-4237` appears twice — modal + popup). Functional, not an SEO issue.
 - **Inbound internal links:** add links **to** `/pool/` from `/residential/` and any outdoor-living content, with anchor text like "propane pool heating".
+
+---
+
+## Post-edit re-audit (2026-06-22)
+
+After the initial optimization, the user hand-edited `pool-optimized.html`. Changes observed and re-verified:
+
+**What the user changed**
+- **Added contextual internal links** in the content sections (all verified HTTP 200):
+  - `/blog/buying-a-propane-pool-heater-read-this-first/`
+  - `/blog/how-automatic-delivery-helps-you/`
+  - `/blog/pool-heater-maintenance-get-more-from-your-pool/`
+  - `/blog/pool-heating-in-the-northeast-why-speed-matters-more-than-efficiency/`
+  - `/blog/propane-the-choice-for-efficient-pool-heat/`
+  - `/pool-heater-maintenance/`, `/tank-sizes-and-installation/`, `/locations/`, `/contact-us/`
+- **Moved the FAQ section** up (now before the 3-column benefits row instead of at the end). No SEO impact — schema is position-independent.
+- **Edited some FAQ answer wording** (e.g. "much faster…", "…programs to keep your heater running safely and efficiently all season long").
+- **Removed the "Inground pools" / "Above-ground pools" H3 sub-headings** (content folded into paragraphs). H3 count 7 → 5.
+
+**Re-audit results — all passing**
+
+| Check | Result |
+|-------|--------|
+| Both JSON-LD blocks parse as valid JSON | ✅ |
+| No duplicate/conflicting entities (1 FAQPage, 1 WebPage, 1 canonical, 1 `<title>`) | ✅ |
+| FAQ schema `acceptedAnswer.text` matches visible FAQ answers **exactly** (incl. edits) | ✅ |
+| Single `<h1>` "Propane for Pool Heaters"; hierarchy 1× H1 / 11× H2 / 5× H3 | ✅ |
+| Title, meta description, canonical intact | ✅ |
+| `<section>` tags balanced (2 open / 2 close) | ✅ |
+| All 9 added internal links resolve (HTTP 200) | ✅ |
+
+**On the two `ld+json` blocks:** not an issue. Google reads and merges all JSON-LD blocks on a page. Block 1 is Rank Math's (Organization/WebSite/WebPage/Article); Block 2 is the added Breadcrumb/Service/FAQPage. They don't conflict and are correctly linked (`Service.provider` → the Organization `@id` from Block 1).
+
+**⚠️ Standing rule:** FAQ schema answer text must always match the visible FAQ answer text. If you reword a visible answer (or add/remove a question), update the matching `acceptedAnswer.text` (and `Question.name`) in Block 2 — and vice versa.

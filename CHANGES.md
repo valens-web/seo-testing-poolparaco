@@ -4,7 +4,12 @@
 **Files:**
 - `original-page.html` — untouched download of the live page (the "before")
 - `pool-optimized.html` — corrected version with all fixes applied (the "after")
+- `pool-offer.html` — **conversion-focused variant** (see below)
 - `CHANGES.md` — this report
+
+> **Two page variants — pick by goal:**
+> - **`pool-optimized.html`** — *evergreen/informational.* Leads with in-depth pool-heating content (H1 "Propane for Pool Heaters", question-style H2s, comparison table, FAQ). Best for ranking on "propane pool heater"-type queries year-round.
+> - **`pool-offer.html`** — *promotional/conversion.* Leads with the **Super Summer Savings offer + lead form** as the primary goal (H1 "Summer Pool Heating Offer: Lock In Your Propane Rate", urgency banner, "what's included" pills, CTA buttons anchored to the form, offer-focused FAQ). Adds **`Offer` schema** (`validThrough` 2026-09-30) alongside Service + Breadcrumb + FAQPage. Supporting SEO content (why-propane + comparison table) sits below the offer so the page still ranks while pushing form fills. Same technical fixes as the optimized version (title/meta, single H1, resource hints, LCP fix, typo fix).
 
 This implements the cowork **SEO Brief** (`Paraco_Pool_Page_Content_Draft` / `Paraco_Pool_SEO_Brief`). Scope selected: **structure + metadata + performance + content expansion + FAQ schema.**
 
